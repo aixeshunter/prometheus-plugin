@@ -70,6 +70,7 @@ func (m *PluginManager) PrometheusDetect() {
 			case <-done:
 				glog.Infof("Delete the pod %s return.", p)
 			case <-time.After(constants.DeletePodTimeout):
+				glog.Infof("Need to patch the pod %s with matadata finalizers null.", p)
 				PatchPod(m.client, p, m.Namespace)
 			}
 		}
@@ -96,7 +97,6 @@ func DeletePod(client kubernetes.Interface, opts *metav1.DeleteOptions, name str
 
 // Update the pod with name and namespace
 func PatchPod(client kubernetes.Interface, name string, namespace string) error {
-	glog.Infof("Patch the pod %s with matadata finalizers null.", name)
 	addControllerPatch := fmt.Sprint(`{"metadata":{"finalizers":null}}`)
 	return wait.Poll(constants.APICallRetryInterval, constants.UpdatePodTimeout, func() (bool, error) {
 		if _, err := client.CoreV1().Pods(namespace).Patch(name, types.StrategicMergePatchType, []byte(addControllerPatch)); err != nil {
