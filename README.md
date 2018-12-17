@@ -17,9 +17,9 @@ format: formatting code
 vet:    vetting code
 ```
 
-**build**: runs go build for nfs_exporter
+**build**: runs go build for prometheus-plugin
 
-**docker**: runs docker build and copy new built nfs_exporter
+**docker**: runs docker build and copy new built prometheus-plugin
 
 
 ### Parameters
