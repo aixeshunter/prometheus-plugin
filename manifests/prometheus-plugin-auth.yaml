@@ -26,4 +26,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: prometheus-plugin
-  namespace: kube-system
+  namespace: {{ prometheus-namespace }}

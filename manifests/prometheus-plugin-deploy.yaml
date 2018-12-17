@@ -3,13 +3,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: prometheus-plugin
-  namespace: kube-system
+  namespace: {{ prometheus-namespace }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus-plugin
-  namespace: kube-system
+  namespace: {{ prometheus-namespace }}
   labels:
     k8s-app: prometheus-plugin
 spec:
@@ -39,7 +39,7 @@ spec:
         - /prometheus-plugin
         - run
         - --period=1m
-        - --namespace=kube-system
+        - --namespace={{ prometheus-namespace }}
         - --v=4
         volumeMounts:
         - name: timezone
