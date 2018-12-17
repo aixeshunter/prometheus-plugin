@@ -6,7 +6,7 @@ The plugin is to resolve the issue [Resource Prometheus can be created by Deploy
 
 ### Prerequisites
 
-- Kubernetes version = 1.11.0
+- Kubernetes version 1.11+
 
 ### Make
 ```
