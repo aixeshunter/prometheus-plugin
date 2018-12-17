@@ -38,15 +38,15 @@ func NewCmdRun(out io.Writer) *cobra.Command {
 	)
 
 	cmd.PersistentFlags().StringVar(
-		&pp.PrometheusName, "prometheus-name", constants.PrometheusName, "The appliction worker period.",
+		&pp.PrometheusName, "prometheus-name", constants.PrometheusName, "The prometheus pod name.",
 	)
 
 	cmd.PersistentFlags().StringVar(
-		&pp.AlertmanagerName, "alertmanager-name", constants.AlertmanagerName, "The appliction worker period.",
+		&pp.AlertmanagerName, "alertmanager-name", constants.AlertmanagerName, "The alertmanager pod name.",
 	)
 
 	cmd.PersistentFlags().StringVar(
-		&pp.Period, "period", constants.DefaultLoopPeriod, "The appliction worker period.",
+		&pp.Period, "period", constants.DefaultLoopPeriod, "The application worker period.",
 	)
 
 	return cmd
