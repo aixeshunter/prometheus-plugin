@@ -21,6 +21,10 @@ vet:    vetting code
 
 **docker**: runs docker build and copy new built prometheus-plugin
 
+**vet**: runs go vet for codes
+
+**format**: runs go format for codes
+
 
 ### Parameters
 
