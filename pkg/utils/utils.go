@@ -24,7 +24,7 @@ func GetTimeDurationStringToSeconds(str string) (int, error) {
 	matches := ValueFormatRegex.FindAllString(str, 1)
 
 	if len(matches) <= 0 {
-		return 0, fmt.Errorf("Time Duration could not be parsed")
+		return 0, fmt.Errorf("time duration could not be parsed")
 	}
 
 	value, err := strconv.Atoi(matches[0])
