@@ -60,6 +60,7 @@ type PrometheusPluginOptions struct {
 	Period           string
 }
 
+// Create k8s client and get PluginManager object, start a PrometheusDetect loop.
 func (pp *PrometheusPluginOptions) run(out io.Writer, kubeConfigFile string) error {
 	client, err := k8s.NewClient(kubeConfigFile)
 	if err != nil {
