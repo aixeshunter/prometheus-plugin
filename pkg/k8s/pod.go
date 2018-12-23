@@ -53,6 +53,7 @@ func (m *PluginManager) Run(stopCh chan struct{}) error {
 	return nil
 }
 
+// PrometheusDetect runs to get unknown pods and delete them.
 func (m *PluginManager) PrometheusDetect() {
 	for _, p := range m.PodList {
 		pod, err := GetPodbyName(m.client, metav1.GetOptions{}, p, m.Namespace)
